@@ -1,19 +1,19 @@
 package com.daniyalak.stepcounterkotlin_androidfitnessapp.service
 
+import android.app.Application
 import android.app.NotificationChannel
 import android.app.NotificationManager
-import android.content.ContextWrapper
 import android.os.Build
 import com.daniyalak.stepcounterkotlin_androidfitnessapp.helper.PrefsHelper
 
-class App : android.app.Application() {
+class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
 
         PrefsHelper.Builder()
             .setContext(this)
-            .setMode(ContextWrapper.MODE_PRIVATE)
+            .setMode(MODE_PRIVATE)
             .setPrefsName(getPackageName())
             .setUseDefaultSharedPreference(true)
             .build();
